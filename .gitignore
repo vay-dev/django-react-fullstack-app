@@ -29,3 +29,7 @@ dist-ssr
 # backend
 backend/.env
 backend/db.sqlite3
+
+
+# claude stuff
+.claude
