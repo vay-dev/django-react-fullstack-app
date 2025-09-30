@@ -1,0 +1,20 @@
+// Main SCSS Entry Point
+// Import order matters!
+
+// 1. Variables
+@import './scss/variables';
+
+// 2. Mixins
+@import './scss/mixins';
+
+// 3. Base styles
+@import './scss/base';
+
+// 4. Components
+@import './scss/components/note-card';
+
+// 5. Pages
+@import './scss/pages/home';
+@import './scss/pages/note-view';
+@import './scss/pages/note-editor';
+@import './scss/pages/search';

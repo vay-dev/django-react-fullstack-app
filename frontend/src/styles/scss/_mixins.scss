@@ -1,0 +1,84 @@
+// Media Query Mixins
+@mixin mobile {
+  @media (min-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: #{$wide}) {
+    @content;
+  }
+}
+
+// Flexbox Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Card Mixin
+@mixin card($bg-color: $dark-card) {
+  background-color: $bg-color;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  box-shadow: $shadow-sm;
+}
+
+// Truncate Text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Button Base
+@mixin button-base {
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  padding: $spacing-sm $spacing-md;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

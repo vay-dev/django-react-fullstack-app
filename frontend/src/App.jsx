@@ -5,6 +5,10 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import NotFound from "./pages/not-found";
 import Register from "./pages/register";
+import NoteView from "./pages/note-view";
+import NoteEditor from "./pages/note-editor";
+import SearchPage from "./pages/search";
+import "./styles/main.scss";
 
 function Logout() {
   localStorage.clear();
@@ -25,6 +29,38 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/note/:id"
+          element={
+            <ProtectedRoute>
+              <NoteView />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/editor"
+          element={
+            <ProtectedRoute>
+              <NoteEditor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/editor/:id"
+          element={
+            <ProtectedRoute>
+              <NoteEditor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <ProtectedRoute>
+              <SearchPage />
             </ProtectedRoute>
           }
         />

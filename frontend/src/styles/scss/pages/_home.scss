@@ -1,0 +1,117 @@
+// Home Page Styles
+.home {
+  min-height: 100vh;
+  padding: $spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-xl;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    h1 {
+      font-size: $font-size-xxl;
+      font-weight: 700;
+      color: $dark-text;
+
+      @include mobile {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+  }
+
+  &__search-btn,
+  &__create-btn {
+    @include button-base;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-lg;
+  }
+
+  &__search-btn {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: $dark-text;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__create-btn {
+    background-color: #4CAF50;
+    color: white;
+
+    &:hover {
+      background-color: darken(#4CAF50, 10%);
+    }
+  }
+
+  &__logout-btn {
+    @include button-base;
+    background-color: #FF4444;
+    color: white;
+
+    &:hover {
+      background-color: darken(#FF4444, 10%);
+    }
+  }
+
+  &__notes-grid {
+    display: grid;
+    gap: $spacing-lg;
+
+    // Mobile: 1 column
+    grid-template-columns: 1fr;
+
+    // Tablet: 2 columns
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Desktop: 3 columns
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    // Wide: 4 columns
+    @include wide {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__empty {
+    @include flex-center;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-xl * 2;
+    color: $dark-text-secondary;
+
+    img {
+      width: 200px;
+      opacity: 0.5;
+    }
+
+    p {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__loading {
+    @include flex-center;
+    min-height: 50vh;
+  }
+}

@@ -1,0 +1,109 @@
+// Note Card Component Styles
+.note-card {
+  @include card($dark-card);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  // Color indicator bar at the top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: $radius-md $radius-md 0 0;
+    background-color: var(--note-color);
+  }
+
+  &__header {
+    @include flex-between;
+    margin-top: $spacing-xs;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $dark-text;
+    @include truncate(2);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__content {
+    font-size: $font-size-sm;
+    color: $dark-text-secondary;
+    @include truncate(3);
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  &__category {
+    display: inline-block;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    background-color: var(--note-color);
+    color: #000;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__footer {
+    @include flex-between;
+    padding-top: $spacing-sm;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    color: $dark-text-secondary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__icon-btn {
+    background: none;
+    border: none;
+    color: $dark-text-secondary;
+    cursor: pointer;
+    padding: $spacing-xs;
+    border-radius: $radius-sm;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $dark-text;
+    }
+
+    &--delete:hover {
+      background-color: rgba(255, 68, 68, 0.2);
+      color: #FF4444;
+    }
+  }
+}
+
+// Color Variants
+@each $color-name, $color-value in $colors {
+  .note-card--#{$color-name} {
+    --note-color: #{$color-value};
+  }
+}
